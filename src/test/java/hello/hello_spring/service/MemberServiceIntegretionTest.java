@@ -16,11 +16,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class MemberServiceIntegrationTest {
     @Autowired MemberService memberService;
     @Autowired MemberRepository memberRepository;
+
+
     @Test
     public void 회원가입() throws Exception {
 //Given
         Member member = new Member();
-        member.setName("hello");
+        member.setName("choi");
 //When
         Long saveId = memberService.signup(member);
         //Then
@@ -31,9 +33,9 @@ class MemberServiceIntegrationTest {
     public void 중복_회원_예외() throws Exception {
 //Given
         Member member1 = new Member();
-        member1.setName("spring");
+        member1.setName("choi");
         Member member2 = new Member();
-        member2.setName("spring");
+        member2.setName("choi");
 //When
         memberService.signup(member1);
         IllegalStateException e = assertThrows(IllegalStateException.class,
